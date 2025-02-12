@@ -1,0 +1,23 @@
+title: Seraph
+description: >- # this means to ignore newlines until "baseurl:"
+  A simple and elegant Jekyll theme.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://Scaroontop.github.io/Seraph" # the base hostname & protocol for your site
+github_username: Scaroontop
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-primer
+
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
