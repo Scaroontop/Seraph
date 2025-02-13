@@ -1,41 +1,24 @@
-name: Build and Deploy Jekyll Site
+title: Seraph
+description: >- # this means to ignore newlines until "baseurl:"
+  A simple and elegant Jekyll theme.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://Scaroontop.github.io/Seraph" # the base hostname & protocol for your site
+github_username: Scaroontop
+repository: Scaroontop/Seraph
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-primer
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1
-
-      - name: Install Bundler
-        run: gem install bundler -v 2.4.22
-
-      - name: Configure Bundler Path
-        run: bundle config set --local path 'vendor/bundle'
-
-      - name: Install dependencies
-        run: bundle install
-
-      - name: Build Jekyll site
-        run: bundle exec jekyll build --trace
-        env:
-          JEKYLL_ENV: production
-
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
