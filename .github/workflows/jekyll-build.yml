@@ -20,6 +20,8 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Build the site
+      env:
+        JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
       run: bundle exec jekyll build --trace
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
